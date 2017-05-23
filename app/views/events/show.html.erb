@@ -32,4 +32,11 @@
 
 </div>
 
+<h4>Themes</h4>
+<% @themes.each do |theme| %>
+  <span class="label label-success"><%= theme.name %></span>
+<% end %>
+
+<br>
+
 <%= link_to "Back", events_path, class: "btn btn-default" %>

@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(room_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: "Event successfully created"
@@ -27,12 +27,18 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(room_params)
+    if @event.update(event_params)
       redirect_to @event, notice: "Event successfully updated"
     else
       render :edit
     end
   end
+
+  def show
+  @themes = @event.themes
+end
+
+
 
   private
     def set_event
@@ -40,7 +46,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:room).permit(
+      params.require(:event).permit(
             :name,
              :description,
              :location,
@@ -50,6 +56,7 @@ class EventsController < ApplicationController
              :includes_drinks,
              :starts_at,
              :ends_at,
-             :active)
+             :active,
+             theme_ids: [])
     end
 end
