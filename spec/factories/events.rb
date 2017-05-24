@@ -6,11 +6,11 @@ FactoryGirl.define do
     description       { Faker::Lorem.sentence }
     location          { Faker::Lorem.sentence }
     price             { Faker::Commerce.price }
-    capacity          { Faker::Demographic.capacity}
+    capacity          { Faker::Number.number(4)}
     includes_food      true
     includes_drinks    true
-    starts_at         { Faker::Date.starts_at}
-    ends_at           { Faker::Date.ends_at}
+    starts_at         { Faker::Date.forward}
+    ends_at           { Faker::Date.forward}
     active             true
     user              { build(:user) }
 
