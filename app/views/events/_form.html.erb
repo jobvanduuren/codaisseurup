@@ -5,18 +5,18 @@
   </div>
 
   <div class="form-group">
-    <label>event Type</label>
+    <label>Location</label>
     <%= f.select :location, [["Adenau","Adenau"], ["Terschelling", "Terschelling"], ["Lichtenvoorde", "Lichtenvoorde"]], prompt: "Select location", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <label>Number of People</label>
-    <%= f.select :price, [["20", 20], ["34", 34], ["25", 25], ["40", 40], ["16", 16], ["50", 50]], prompt: "Select price", class: "form-control" %>
+    <label>Price</label>
+    <%= f.select :price, [["20+", 20], ["30+", 30], ["40+", 40], ["50+", 50], ["60+", 60], ["70+", 70]], prompt: "Select price", class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <label>Bedevents</label>
-    <%= f.select :capacity, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]], prompt: "Select number of bedevents", class: "form-control" %>
+    <label>Capacity (in thousands)</label>
+    <%= f.select :capacity, [["10+", 10], ["20+", 20], ["30+", 30], ["40+", 40]], prompt: "Select number of bedevents", class: "form-control" %>
   </div>
 
 

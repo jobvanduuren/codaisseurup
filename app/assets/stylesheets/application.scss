@@ -2,3 +2,13 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+h4 {
+  color: pink;
+}
+
+.dropdown-menu {
+  a {
+    background-color: blue;
+  }
+}
