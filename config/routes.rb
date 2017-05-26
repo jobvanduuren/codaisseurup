@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :edit, :create, :update]
   resources :users, only: [:show]
   resources :events
+  resources :events do
+    resources :bookings, only: [:create]
+  end
   get "about" => "pages#about"
 
 
