@@ -2,12 +2,18 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @booking = current_user.bookings.new(booking_params.merge(event_id: params[:event_id]))
-    @booking.set_total_price
-    @booking.save
+    @booking = current_user.bookings.new(booking_params)
+    @booking.event_id = params[:event_id]
 
-    redirect_to @booking.event, notice: "Thank you for booking!"
+    if @booking.event_available?
+      @booking.set_total_price
+      @booking.save
+      redirect_to @booking.event, notice: "Thank you for booking!"
+    else
+      redirect_to @booking.event, notice: "Sorry! This listing is not available during the dates you requested."
+    end
   end
+
 
   private
 
