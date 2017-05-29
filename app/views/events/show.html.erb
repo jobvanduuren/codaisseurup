@@ -50,3 +50,8 @@
 <br>
 
 <%= link_to "Back", events_path, class: "btn btn-default" %>
+
+<h4>Photos</h4>
+<% @event.photos.each do |photo| %>
+  <%= image_tag photo.image %>
+<% end %>
