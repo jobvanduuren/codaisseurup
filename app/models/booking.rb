@@ -2,8 +2,6 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :event
 
-  
-
   def set_status
   end
 
